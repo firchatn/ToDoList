@@ -9,7 +9,9 @@ def index(request):
 			if form.is_valid():
 				Task.myTask = form.cleaned_data['myTask']
 				Task.save()
-				#return redirect('index')
+				return redirect('todolist:index')
 	else:
 		form = taskForm()
-	return render(request,'todolist/index.html', {'form' : form})
+	tasks = task.objects.all().reverse()
+	nb = task.objects.count()
+	return render(request,'todolist/index.html', {'form' : form, 'tasks' : tasks, 'nb' : nb })

@@ -66,32 +66,24 @@ li.ui-state-default:last-child{
              <!--
                 <input type="text" class="form-control add-todo" placeholder="Add todo">
                 -->
-                    <button id="checkAll" class="btn btn-success" type="submit">Mark all as done</button>
+                    <button id="checkAll" class="btn btn-success" type="submit">Make New Task</button>
                    </form>
 
                     <hr>
                     <ul id="sortable" class="list-unstyled">
+                    {% for i in tasks %}
+                    {% if i.ready %}
                     <li class="ui-state-default">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" value="" />Take out the trash</label>
+                                <input type="checkbox" value="" />{{ i.myTask }}</label>
                         </div>
                     </li>
-                    <li class="ui-state-default">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="" />Buy bread</label>
-                        </div>
-                    </li>
-                    <li class="ui-state-default">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="" />Teach penguins to fly</label>
-                        </div>
-                    </li>
+                    {% endif %}
+                   {% endfor %}
                 </ul>
                 <div class="todo-footer">
-                    <strong><span class="count-todos"></span></strong> Items Left
+                    <strong><span class="count-todos"> {{ nb }}</span></strong> Items Left
                 </div>
             </div>
         </div>
@@ -99,8 +91,11 @@ li.ui-state-default:last-child{
             <div class="todolist">
              <h1>Already Done</h1>
                 <ul id="done-items" class="list-unstyled">
-                    <li>Some item <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button></li>
-                    
+                {% for i in tasks %}
+                    {% if i.ready == False %}
+                    <li>{{ i.myTask }} <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button></li>
+                 {% endif%}
+                {% endfor %}
                 </ul>
             </div>
         </div>
