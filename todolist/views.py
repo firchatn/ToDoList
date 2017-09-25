@@ -1,5 +1,15 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from .forms import taskForm
+from .models import task
 # Create your views here.
 def index(request):
-   return render(request,'todolist/index.html')
+	if request.method == "POST":
+			form = taskForm(request.POST)
+			Task = task()
+			if form.is_valid():
+				Task.myTask = form.cleaned_data['myTask']
+				Task.save()
+				#return redirect('index')
+	else:
+		form = taskForm()
+	return render(request,'todolist/index.html', {'form' : form})
