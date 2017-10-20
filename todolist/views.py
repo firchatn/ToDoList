@@ -13,6 +13,7 @@ def index(request):
 	else:
 		form = taskForm()
 	tasks = task.objects.all()
-	tasks = tasks.reverse()
+	
 	nb = task.objects.count()
-	return render(request,'todolist/index.html', {'form' : form, 'tasks' : tasks, 'nb' : nb })
+	return render(request,'todolist/index.html',
+                      {'form' : form, 'tasks' : tasks, 'nb' : nb })
