@@ -38,13 +38,9 @@ urlpatterns = [
 
 ```python
 from django.shortcuts import render
-from .models import task
 
 def index(request):
-	tasks = task.objects.all()
-	nb = task.objects.count()
-	return render(request,'todolist/index.html',
-                      {'tasks' : tasks, 'nb' : nb })
+	return render(request,'todolist/index.html')
 
 ```
 18. cd ..
