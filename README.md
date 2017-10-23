@@ -6,8 +6,7 @@ and follow installing statements
 pip install django
 ### Get Start with Django
 1. django admin startproject todo
-   1. (note) dont name your project todo
-2. cd project folder
+2. cd todo
 3. python manage.py startapp  todolist
 4. cd todo
 5. open setting.py
@@ -32,7 +31,7 @@ urlpatterns = [
 ```
 
 14. save change
-15. copy template todo-template context to todolist\templates\todolist\index.html
+15. copy template todo-template (from requirements) context to todolist\templates\todolist\index.html
 16. open views.py
 17. add this function
 
