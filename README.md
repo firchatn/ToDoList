@@ -32,7 +32,7 @@ urlpatterns = [
 ```
 
 14. save change
-15. add template todo-template to todolist\templates\todolist
+15. copy template todo-template context to todolist\templates\todolist\index.html
 16. open views.py
 17. add this function
 
