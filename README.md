@@ -32,13 +32,20 @@ urlpatterns = [
 ```
 
 14. save change
-15. open views.py
-16. import HttpResponse from django.http
+15. add template todo-template to todolist\templates\todolist
+16. open views.py
 17. add this function
 
 ```python
+from django.shortcuts import render
+from .models import task
+
 def index(request):
-    return HttpResponse('hello')
+	tasks = task.objects.all()
+	nb = task.objects.count()
+	return render(request,'todolist/index.html',
+                      {'tasks' : tasks, 'nb' : nb })
+
 ```
 18. cd ..
 19. python manage.py runserver
