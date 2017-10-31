@@ -15,7 +15,7 @@ pip install django
 7. open urls.py
 8. import include from django.conf.urls
 9. add ligne in urlpatterns
-   1. url(r'^', include('todolist.urls'),
+   1. url(r'^', include('todolist.urls')),
 10. cd ..
 11. cd todolist
 12. create new file name urls.py
